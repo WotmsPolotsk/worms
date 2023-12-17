@@ -1,5 +1,13 @@
 {
   "compilerOptions": {
+    "paths": {
+      "@worms/*": ["./src/*"],
+      "@worms/assets/*": ["./src/assets/*"],
+      "@worms/common/*": ["./src/common/*"],
+      "@worms/components/*": ["./src/components/*"],
+      "@worms/hooks/*": ["./src/hooks/*"],
+      "@worms/pages/*": ["./src/pages/*"]
+    },
     "target": "ES2020",
     "useDefineForClassFields": true,
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
