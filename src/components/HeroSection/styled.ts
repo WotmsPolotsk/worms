@@ -1,6 +1,7 @@
 import { HomePageBgImage } from "@worms/assets";
 import { Button } from "@worms/common/Button";
 import { FlexWrapper } from "@worms/common/FlexWrapper";
+import { ADAPTIVE } from "@worms/utils/constants";
 import styled, { keyframes } from "styled-components";
 
 export const HeroSectionStyled = styled.div`
@@ -11,9 +12,20 @@ export const HeroSectionStyled = styled.div`
   background-image: url(${HomePageBgImage});
   background-position: center center;
   background-size: cover;
-  width: 100vw;
-  height: 100vh;
-  padding: 160px 80px 80px 80px;
+  width: 100%;
+
+  height: 350px;
+  padding: 12px;
+
+  ${ADAPTIVE.minWidth.tablet} {
+    padding: 20px;
+    height: 500px;
+  }
+
+  ${ADAPTIVE.minWidth.desktop} {
+    padding: 80px;
+    height: 100vh;
+  }
 `;
 
 export const TopContent = styled(FlexWrapper)`
@@ -35,21 +47,43 @@ export const MaskStyled = styled.div`
 `;
 
 export const HeroContentStyled = styled.div`
-  width: 70%;
+  width: 100%;
+
+  ${ADAPTIVE.minWidth.desktop} {
+    width: 70%;
+  }
   z-index: 1;
 `;
 
 export const TitleStyled = styled.h1`
-  font-size: 86px;
+  font-size: 34px;
+
+  ${ADAPTIVE.minWidth.tablet} {
+    font-size: 48px;
+  }
+
+  ${ADAPTIVE.minWidth.desktop} {
+    font-size: 86px;
+  }
+
   text-transform: uppercase;
   color: #fff;
 `;
 
 export const SubtitleStyled = styled.h4`
   padding-left: 3px;
-  font-size: 42px;
   text-transform: uppercase;
   color: #fff;
+
+  font-size: 24px;
+
+  ${ADAPTIVE.minWidth.tablet} {
+    font-size: 34px;
+  }
+
+  ${ADAPTIVE.minWidth.desktop} {
+    font-size: 42px;
+  }
 `;
 
 export const SvgStyled = styled.img`

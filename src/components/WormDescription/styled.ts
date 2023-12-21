@@ -1,5 +1,6 @@
 import { Button } from "@worms/common/Button";
 import { FlexWrapper } from "@worms/common/FlexWrapper";
+import { ADAPTIVE } from "@worms/utils/constants";
 import styled, { css, keyframes } from "styled-components";
 
 export const CaseStyled = styled(FlexWrapper)<{
@@ -17,9 +18,14 @@ export const CaseStyled = styled(FlexWrapper)<{
 
 export const IconTextStyled = styled.h5`
   color: #fff;
-  font-size: 18px;
+  font-size: 16px;
+  text-transform: uppercase;
   text-align: center;
   font-weight: 300;
+
+  ${ADAPTIVE.minWidth.desktop} {
+    font-size: 18px;
+  }
 `;
 
 export const TitleStyled = styled.h3`
@@ -31,14 +37,23 @@ export const TitleStyled = styled.h3`
 
 export const Description = styled(FlexWrapper)`
   gap: 16px;
-  padding-top: 80px;
   width: 100%;
+  padding-top: 40px;
+
+  ${ADAPTIVE.minWidth.desktop} {
+    padding-top: 80px;
+  }
 `;
 
 export const DescriptionText = styled.span`
-  font-size: 18px;
+  font-size: 16px;
+
   color: #fff;
   font-weight: 300;
+
+  ${ADAPTIVE.minWidth.desktop} {
+    font-size: 18px;
+  }
 `;
 
 const rotate = keyframes`

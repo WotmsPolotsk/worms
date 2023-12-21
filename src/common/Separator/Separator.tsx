@@ -18,9 +18,9 @@ export const Separator = ({
   return (
     <SeparatorStyled
       className={className}
-      isBottomPadding={isBottomPadding}
-      isTopPadding={isTopPadding}
-      bgColor={bgColor}
+      $isBottomPadding={isBottomPadding}
+      $isTopPadding={isTopPadding}
+      $bgColor={bgColor}
     >
       {children}
     </SeparatorStyled>

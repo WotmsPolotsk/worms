@@ -1,4 +1,5 @@
 import { FlexWrapper } from "@worms/common/FlexWrapper";
+import { ADAPTIVE } from "@worms/utils/constants";
 import styled, { css } from "styled-components";
 
 export const WhyMeStyled = styled.div`
@@ -8,8 +9,7 @@ export const WhyMeStyled = styled.div`
   justify-content: center;
   align-items: center;
 
-  width: 100vw;
-  padding: 80px 80px;
+  width: 100%;
 `;
 
 export const MaskStyled = styled.div`
@@ -50,7 +50,12 @@ export const CaseStyled = styled(FlexWrapper)<{
 
 export const IconTextStyled = styled.h5`
   color: #fff;
-  font-size: 18px;
+  font-size: 16px;
   text-align: center;
   font-weight: 300;
+  text-transform: uppercase;
+
+  ${ADAPTIVE.minWidth.desktop} {
+    font-size: 18px;
+  }
 `;

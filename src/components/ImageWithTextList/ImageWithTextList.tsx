@@ -1,13 +1,27 @@
 import { Separator } from "@worms/common/Separator";
 import { ImageWithText } from "./ImageWithText";
-import { ImageWithTextListStyled, ListTitleStyled } from "./styled";
+import { ImageWithTextListStyled } from "./styled";
 import { Chicken, Farm, Fishing } from "@worms/assets";
+import { Col, Container, Row } from "react-bootstrap";
+import { Title } from "@worms/common/Title";
+import { FlexWrapper } from "@worms/common/FlexWrapper";
+import { useWindowSize } from "@worms/hooks/useWindowSize";
 
 export const ImageWithTextList = () => {
+  const { isInfiniteDesktopView } = useWindowSize();
+
   return (
     <Separator bgColor="#fff">
       <ImageWithTextListStyled>
-        <ListTitleStyled>Кому подойдут наши черви?</ListTitleStyled>
+        <Container>
+          <Row>
+            <Col>
+              <FlexWrapper justifyContent="center">
+                <Title>Кому подойдут наши черви?</Title>
+              </FlexWrapper>
+            </Col>
+          </Row>
+        </Container>
         <ImageWithText title="Фермерам" imageSrc={Farm}>
           Черви старатели — вид беспозвоночных, который был получен в результате
           скрещивания Владимерских и Чуйских червей. Их нужно использовать в
@@ -18,7 +32,7 @@ export const ImageWithTextList = () => {
         </ImageWithText>
         <ImageWithText
           title="Рыбацким магазинам и рыбакам"
-          isRightToLef
+          isRightToLef={isInfiniteDesktopView}
           imageSrc={Fishing}
         >
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam

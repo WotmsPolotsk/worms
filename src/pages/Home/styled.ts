@@ -6,19 +6,19 @@ export const HeroSectionStyled = styled.div`
   background-image: url(${HomePageBgImage});
   background-position: center center;
   background-size: cover;
-  width: 100vw;
+  width: 100%;
   height: 500px;
 `;
 
 export const HomeStyled = styled(FlexWrapper)`
-  width: 100vw;
+  width: 100%;
   background-image: url(${WormsBgImage});
   background-repeat: repeat;
   position: relative;
 `;
 
 export const HomeBgStyled = styled(FlexWrapper)`
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   position: fixed;
   background-image: url(${WormsBgImage});

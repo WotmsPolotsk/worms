@@ -6,6 +6,7 @@
       "@worms/common/*": ["./src/common/*"],
       "@worms/components/*": ["./src/components/*"],
       "@worms/hooks/*": ["./src/hooks/*"],
+      "@worms/utils/*": ["./src/utils/*"],
       "@worms/pages/*": ["./src/pages/*"]
     },
     "target": "ES2020",

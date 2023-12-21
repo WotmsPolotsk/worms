@@ -8,20 +8,34 @@ import {
   SubtitleStyled,
   TitleStyled,
 } from "./styled";
+import { ModalForm } from "../ModalForm";
+import { useState } from "react";
 
 export const HeroSection = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = (value: boolean) => () => {
+    setIsModalOpen(value);
+  };
   return (
-    <Separator bgColor="#fff">
-      <HeroSectionStyled>
-        <BottomContent justifyContent="space-between" alignItems="flex-end">
-          <HeroContentStyled>
-            <SubtitleStyled>Полоцк</SubtitleStyled>
-            <TitleStyled>Продажа червей и биогумуса</TitleStyled>
-          </HeroContentStyled>
-          <ButtonStyled className="hero-button" text="Сделать заказ" />
-        </BottomContent>
-        <MaskStyled />
-      </HeroSectionStyled>
-    </Separator>
+    <>
+      <Separator bgColor="#fff">
+        <HeroSectionStyled>
+          <BottomContent justifyContent="space-between" alignItems="flex-end">
+            <HeroContentStyled>
+              <SubtitleStyled>Полоцк</SubtitleStyled>
+              <TitleStyled>Продажа червей и биогумуса</TitleStyled>
+            </HeroContentStyled>
+            <ButtonStyled
+              onClick={openModal(true)}
+              className="hero-button"
+              text="Сделать заказ"
+            />
+          </BottomContent>
+          <MaskStyled />
+        </HeroSectionStyled>
+      </Separator>
+      <ModalForm isOpen={isModalOpen} onClose={openModal(false)} />
+    </>
   );
 };

@@ -1,20 +1,19 @@
 import { useIntersectionElement } from "@worms/hooks/useIntersectionElement";
-import {
-  CaseStyled,
-  Content,
-  IconTextStyled,
-  TitleStyled,
-  WhyMeStyled,
-} from "./styled";
+import { CaseStyled, Content, IconTextStyled, WhyMeStyled } from "./styled";
 
 import { useRef } from "react";
 import { Bank, Coins, Handshake, Shipping, Users } from "@worms/assets";
 import { Separator } from "@worms/common/Separator";
 import { FlexWrapper } from "@worms/common/FlexWrapper";
 import { SvgIcon } from "@worms/common/SvgIcon";
+import { Title } from "@worms/common/Title";
+import { GridWrapper } from "@worms/common/GridWrapper";
+import { useWindowSize } from "@worms/hooks/useWindowSize";
 
 export const WhyMeComponent = () => {
   const ref = useRef(null);
+
+  const { isMobileView } = useWindowSize();
 
   const { isShowed } = useIntersectionElement({ ref });
 
@@ -43,36 +42,45 @@ export const WhyMeComponent = () => {
 
   let seconds = 1;
   return (
-    <Separator isBottomPadding={false}>
-      <WhyMeStyled>
-        <Content flexDirection="column" alignItems="center" gap="80px">
-          <TitleStyled>Почему выбирают именно нас?</TitleStyled>
+    <Separator isTopPadding isBottomPadding>
+      <GridWrapper>
+        <WhyMeStyled>
+          <Content flexDirection="column" alignItems="center">
+            <Title colorValue="#fff">Почему выбирают именно нас?</Title>
 
-          <FlexWrapper ref={ref} justifyContent="space-around" width="100%">
-            {iconsData.map((item) => {
-              seconds += 0.2;
-              return (
-                <CaseStyled
-                  isShowed={isShowed}
-                  seconds={seconds}
-                  key={item.icon + item.title}
-                  flexDirection="column"
-                  alignItems="center"
-                  gap="32px"
-                >
-                  <SvgIcon
-                    width="70px"
-                    height="70px"
-                    fill="#fff"
-                    iconSrc={item.icon}
-                  />
-                  <IconTextStyled>{item.title}</IconTextStyled>
-                </CaseStyled>
-              );
-            })}
-          </FlexWrapper>
-        </Content>
-      </WhyMeStyled>
+            <FlexWrapper
+              justifyContent="space-around"
+              alignItems="center"
+              ref={ref}
+              flexDirection={isMobileView ? "column" : "row"}
+              width="100%"
+              gap={isMobileView ? "40px" : "80px"}
+            >
+              {iconsData.map((item) => {
+                seconds += 0.2;
+                return (
+                  <CaseStyled
+                    isShowed={isShowed}
+                    seconds={seconds}
+                    key={item.icon + item.title}
+                    flexDirection="column"
+                    alignItems="center"
+                    gap="32px"
+                  >
+                    <SvgIcon
+                      width="70px"
+                      height="70px"
+                      fill="#fff"
+                      iconSrc={item.icon}
+                    />
+                    <IconTextStyled>{item.title}</IconTextStyled>
+                  </CaseStyled>
+                );
+              })}
+            </FlexWrapper>
+          </Content>
+        </WhyMeStyled>
+      </GridWrapper>
     </Separator>
   );
 };

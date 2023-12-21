@@ -1,11 +1,12 @@
 import { Button } from "@worms/common/Button";
+import { FlexWrapper } from "@worms/common/FlexWrapper";
 import styled from "styled-components";
 
 export const NavigationStyled = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   z-index: 10;
   background-color: #fff;
 
@@ -35,19 +36,21 @@ export const LogoTextStyled = styled.div`
   font-size: 24px;
 `;
 
-export const ContactStyled = styled.div`
+export const ContactStyled = styled(FlexWrapper)`
   gap: 16px;
   display: flex;
   align-items: center;
 `;
 
-export const ContactItem = styled.div`
+export const ContactItem = styled.a`
   gap: 8px;
   display: flex;
+  text-decoration: none;
   align-items: center;
   font-size: 16px;
   font-weight: 400;
   color: #121212;
+  cursor: pointer;
 `;
 
 export const SvgStyled = styled.img`
