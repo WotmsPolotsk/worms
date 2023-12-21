@@ -11,7 +11,7 @@ export const GridWrapper = (props: GridWrapperProps) => {
     <div>
       <Container>
         <Row>
-          <Col>{children}</Col>
+          <Col lg={12}>{children}</Col>
         </Row>
       </Container>
     </div>

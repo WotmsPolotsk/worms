@@ -1,3 +1,4 @@
+import { ADAPTIVE } from "@worms/utils/constants";
 import { Row } from "react-bootstrap";
 import styled, { css } from "styled-components";
 
@@ -5,6 +6,7 @@ export const ImageWithTextStyled = styled.div<{ isRightToLeft: boolean }>`
   ${({ isRightToLeft }) => isRightToLeft && "direction: rtl;"}
 
   width: 100%;
+  margin-bottom: 32px;
 `;
 
 export const ImageStyled = styled.img<{
@@ -36,10 +38,14 @@ export const TitleStyled = styled.h5<{
   isShowed: boolean;
   isRightToLeft: boolean;
 }>`
-  font-size: 24px;
+  font-size: 22px;
   text-transform: uppercase;
   color: #121212;
   opacity: 0;
+
+  ${ADAPTIVE.minWidth.desktop} {
+    font-size: 24px;
+  }
 
   ${({ isShowed }) =>
     isShowed &&
@@ -53,9 +59,15 @@ export const TextStyled = styled.span<{
   isShowed: boolean;
   isRightToLeft: boolean;
 }>`
-  font-size: 18px;
+  font-size: 16px;
   color: #121212;
   opacity: 0;
+
+  font-size: 16px;
+
+  ${ADAPTIVE.minWidth.desktop} {
+    font-size: 18px;
+  }
 
   ${({ isShowed }) =>
     isShowed &&

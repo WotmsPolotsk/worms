@@ -5,6 +5,7 @@ import {
   InputStyled,
   Label,
   SvgStyled,
+  ErrorLabel,
 } from "./styled";
 
 interface InputProps {
@@ -12,11 +13,13 @@ interface InputProps {
   placeholder?: string;
   label?: string;
   value: string;
+  error: string;
   onChange: (value: string) => void;
+  onBlur: () => void;
 }
 
 export const Input = (props: InputProps) => {
-  const { iconSrc, placeholder, label, value, onChange } = props;
+  const { iconSrc, placeholder, label, value, onChange, onBlur, error } = props;
 
   return (
     <InputContainerStyled>
@@ -28,12 +31,15 @@ export const Input = (props: InputProps) => {
           </SvgStyled>
         )}
         <InputStyled
-          isIconVisible={Boolean(iconSrc)}
+          $isError={Boolean(error)}
+          onBlur={() => onBlur()}
+          $isIconVisible={Boolean(iconSrc)}
           onChange={(e) => onChange(e.target.value)}
           value={value}
           placeholder={placeholder}
         />
       </InputContainer>
+      {error && <ErrorLabel>{error}</ErrorLabel>}
     </InputContainerStyled>
   );
 };

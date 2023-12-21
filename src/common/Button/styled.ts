@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-export const ButtonStyled = styled.button<{ width: string; bgColor: string }>`
+export const ButtonStyled = styled.button<{ $width: string; $bgColor: string }>`
   outline: none;
-  background-color: ${({ bgColor }) => bgColor};
-  width: ${({ width }) => width};
+  background-color: ${({ $bgColor }) => $bgColor};
+  width: ${({ $width }) => $width};
   border: 1px solid #121212;
   color: #121212;
   padding: 16px 28px;

@@ -5,6 +5,8 @@ interface ButtonProps {
   className?: string;
   width?: string;
   bgColor?: string;
+  onClick?: () => void;
+  type?: "button" | "submit" | "reset";
 }
 
 export const Button = (props: ButtonProps) => {
@@ -13,10 +15,18 @@ export const Button = (props: ButtonProps) => {
     width = "auto",
     bgColor = "#fff",
     className = "button",
+    type = "button",
+    onClick,
   } = props;
 
   return (
-    <ButtonStyled className={className} width={width} bgColor={bgColor}>
+    <ButtonStyled
+      type={type}
+      onClick={onClick}
+      className={className}
+      $width={width}
+      $bgColor={bgColor}
+    >
       {text}
     </ButtonStyled>
   );

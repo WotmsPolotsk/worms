@@ -4,46 +4,61 @@ import { YMaps, Map, Placemark } from "@pbe/react-yandex-maps";
 import styled from "styled-components";
 import { FlexWrapper } from "@worms/common/FlexWrapper";
 import { Separator } from "@worms/common/Separator";
-
-const TitleStyled = styled.h3`
-  font-size: 42px;
-  text-transform: uppercase;
-  margin-bottom: 80px;
-  color: #fff;
-`;
+import { Title } from "@worms/common/Title";
+import { useWindowSize } from "@worms/hooks/useWindowSize";
+import { ADAPTIVE } from "@worms/utils/constants";
 
 const SubtitleStyled = styled.h5`
-  font-size: 24px;
+  font-size: 22px;
   text-transform: uppercase;
   color: #fff;
+
+  ${ADAPTIVE.minWidth.desktop} {
+    font-size: 24px;
+  }
 `;
 
-const TextStyled = styled.span`
-  font-size: 18px;
+const TextStyled = styled.a`
+  text-decoration: none;
+  font-size: 16px;
   color: #fff;
   font-weight: 300;
+
+  ${ADAPTIVE.minWidth.desktop} {
+    font-size: 18px;
+  }
+`;
+
+const RowStyled = styled(Row)`
+  gap: 30px;
+
+  ${ADAPTIVE.minWidth.desktop} {
+    gap: 0;
+  }
 `;
 
 export const YandexMap = () => {
+  const { isInfiniteDesktopView } = useWindowSize();
+
   return (
     <Separator isBottomPadding isTopPadding>
       <Container>
         <Row>
           <Col>
             <FlexWrapper width="100%" justifyContent="center">
-              <TitleStyled>Где нас найти?</TitleStyled>
+              <Title colorValue="#fff">Где нас найти?</Title>
             </FlexWrapper>
           </Col>
         </Row>
-        <Row>
+        <RowStyled>
           <Col lg={8}>
             <YMaps>
               <Map
                 width="100%"
-                height="500px"
-                defaultState={{ center: [55.751574, 37.573856], zoom: 14 }}
+                height={isInfiniteDesktopView ? "500px" : "300px"}
+                defaultState={{ center: [55.6789, 28.304441], zoom: 17 }}
               >
-                <Placemark defaultGeometry={[55.751574, 37.573856]} />
+                <Placemark defaultGeometry={[55.6789, 28.304441]} />
               </Map>
             </YMaps>
           </Col>
@@ -52,18 +67,21 @@ export const YandexMap = () => {
               <FlexWrapper flexDirection="column" gap="8">
                 <SubtitleStyled>Адрес</SubtitleStyled>
                 <TextStyled>
-                  212121, Беларусь, Витебская область, г. Полоцк, ул. Пушкина 20
+                  Беларусь, Витебская область, Верхнедвинский район,
+                  Борковичский сельсовет, деревня Дворица, дом 6
                 </TextStyled>
               </FlexWrapper>
 
               <FlexWrapper flexDirection="column" gap="8">
                 <SubtitleStyled>Контакты</SubtitleStyled>
-                <TextStyled>тел: + 375 (33) 333-33-33</TextStyled>
+                <TextStyled href="tel:+375297145127">
+                  тел: +375 (29) 714-51-27
+                </TextStyled>
                 <TextStyled>email: test-email@gmail.com</TextStyled>
               </FlexWrapper>
             </FlexWrapper>
           </Col>
-        </Row>
+        </RowStyled>
       </Container>
     </Separator>
   );

@@ -8,6 +8,8 @@ import { Gallery } from "@worms/components/Gallery";
 import { ImageWithTextList } from "@worms/components/ImageWithTextList";
 import { WhyMeComponent } from "@worms/components/WhyMeComponent";
 import { YandexMap } from "@worms/components/YandexMap";
+import { WormsVariants } from "@worms/components/WormsVariants";
+import { Footer } from "@worms/components/Footer";
 
 export const Home = () => {
   return (
@@ -19,12 +21,14 @@ export const Home = () => {
       <HomeContent>
         <Navigation />
         <HeroSection />
+        <WormsVariants />
         <ImageWithTextList />
         <WhyMeComponent />
         <Gallery />
         <WormDescription />
         <BottomForm />
         <YandexMap />
+        <Footer />
       </HomeContent>
     </HomeStyled>
   );
