@@ -45,3 +45,39 @@ body {
   aspect-ratio: 16 / 9;
   object-fit: cover;
 }
+
+.input-range__slider {
+  background: #121212 !important;
+  border: 1px solid #121212 !important;
+}
+
+.input-range__label-container {
+  font-family: "Play" !important;
+  font-size: 16px;
+  color: #121212;
+}
+
+.input-range__track {
+  background: #c2c2c2 !important;
+  transition: none !important;
+}
+
+.input-range__track--active {
+  background: #121212 !important;
+}
+
+.input-range__label--value {
+  top: -2.1rem !important;
+}
+
+.input-range__label--max .input-range__label-container {
+  left: 0% !important;
+}
+
+.input-range__label-container {
+  left: 0% !important;
+}
+
+.input-range__slider-container {
+  transition: none !important;
+}

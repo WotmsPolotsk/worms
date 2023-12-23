@@ -11,32 +11,33 @@ const reqExpEmail =
 
 const reqExpNumber = /^\+?\d+$/;
 
-interface FormProps {
+interface FormWithDescriptionProps {
   secondaryButon?: ReactNode;
   buttonText?: string;
 }
 
-export const Form = (props: FormProps) => {
+export const FormWithDescription = (props: FormWithDescriptionProps) => {
   const { secondaryButon, buttonText = "Сделать заказ онлайн" } = props;
 
   const [fields, setFields] = useState({
     name: "",
-    email: "",
     phone: "",
+    description: "",
+    email: "",
   });
 
   const [fieldsErrors, setFieldsErros] = useState<{
     name: string;
-    email: string;
     phone: string;
+    email: string;
   }>({
     name: "",
-    email: "",
     phone: "",
+    email: "",
   });
 
   const onChangeField =
-    (field: "email" | "phone" | "name") => (value: string) => {
+    (field: "email" | "phone" | "name" | "description") => (value: string) => {
       if (field === "email") {
         if (!value.toLowerCase().match(reqExpEmail)) {
           setFieldsErros({
@@ -70,7 +71,7 @@ export const Form = (props: FormProps) => {
 
   return (
     <FormStyled>
-      <FlexWrapper flexDirection="column" width="100%" gap="16px">
+      <FlexWrapper flexDirection="column" width="100%" gap="8px">
         <Input
           onChange={onChangeField("name")}
           error={fieldsErrors.name}
@@ -94,6 +95,14 @@ export const Form = (props: FormProps) => {
           label="Телефон"
           iconSrc={Phone}
           onBlur={onBlurField("phone")}
+        />
+        <Input
+          onChange={onChangeField("description")}
+          error={""}
+          value={fields.description}
+          label="Комментарий"
+          isTextArea
+          isRequired={false}
         />
         <ButtonsPanel
           flexDirection="column"

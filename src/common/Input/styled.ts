@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const InputStyled = styled.input<{
   $isIconVisible: boolean;
@@ -19,6 +19,19 @@ export const InputStyled = styled.input<{
   }
 `;
 
+export const TextAreaStyled = styled.textarea`
+  width: 100%;
+  outline: none;
+  border-radius: 8px;
+  border: "1px solid #a6a6a6";
+  padding: 10px;
+  font-size: 14px;
+
+  &:focus {
+    border: 1px solid #121212;
+  }
+`;
+
 export const InputContainer = styled.div`
   position: relative;
   width: 100%;
@@ -29,12 +42,21 @@ export const InputContainerStyled = styled.div`
   width: 100%;
 `;
 
-export const Label = styled.span`
+export const Label = styled.span<{ isRequired?: boolean }>`
   display: block;
   font-weight: 500;
   color: #121212;
   font-size: 14px;
   margin-bottom: 8px;
+
+  ${({ isRequired }) =>
+    isRequired &&
+    css`
+      &::after {
+        content: "*";
+        color: #9c332c;
+      }
+    `}
 `;
 
 export const ErrorLabel = styled.span`

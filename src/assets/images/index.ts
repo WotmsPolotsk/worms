@@ -9,3 +9,8 @@ export { default as WormsBgImage } from "./worms-bg.jpeg";
 export { default as Dendrobena } from "./dendrobena.jpg";
 export { default as Staratel } from "./staratel.jpg";
 export { default as Biogumus } from "./biogumus.jpg";
+export { default as Basket1 } from "./basket1.png";
+export { default as Basket2 } from "./basket2.png";
+export { default as Basket3 } from "./basket3.png";
+export { default as Basket4 } from "./basket4.png";
+export { default as Basket5 } from "./basket5.png";

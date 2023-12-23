@@ -11,19 +11,4 @@ export default defineConfig({
   server: {
     port: 3000,
   },
-  build: {
-    write: true,
-    lib: {
-      entry: "./index.html",
-      name: "custom-editor ",
-      fileName: "custom-editor",
-      formats: ["es"],
-    },
-    rollupOptions: {
-      external: ["react"],
-      output: {
-        format: "esm",
-      },
-    },
-  },
 });

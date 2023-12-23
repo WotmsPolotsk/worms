@@ -5,11 +5,8 @@ import { FlexWrapper } from "@worms/common/FlexWrapper";
 import { Biogumus, Dendrobena, Staratel } from "@worms/assets";
 import { WormVariant } from "./WormVariant";
 import { Title } from "@worms/common/Title";
-import { useWindowSize } from "@worms/hooks/useWindowSize";
 
 export const WormsVariants = () => {
-  const { isInfiniteDesktopView } = useWindowSize();
-
   const variants = [
     {
       title: "Червь старатель",
