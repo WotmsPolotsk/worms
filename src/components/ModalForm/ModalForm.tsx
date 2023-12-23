@@ -5,8 +5,8 @@ import {
   ModalWindowStyled,
   TitleStyled,
 } from "./styled";
-import { Form } from "../Form";
 import { FlexWrapper } from "@worms/common/FlexWrapper";
+import { FormWithDescription } from "../FormWithDescription";
 
 interface ModalFormProps {
   isOpen: boolean;
@@ -54,7 +54,7 @@ export const ModalForm = (props: ModalFormProps) => {
           <TitleStyled>
             Оставьте ваши контактные данные и мы вам перезвоним
           </TitleStyled>
-          <Form
+          <FormWithDescription
             secondaryButon={
               <ButtonStyled
                 onClick={() => onClose()}

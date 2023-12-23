@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Row } from "react-bootstrap";
 import { Separator } from "@worms/common/Separator";
 import { ADAPTIVE } from "@worms/utils/constants";
+import { Button } from "@worms/common/Button";
 
 export const TitleStyled = styled.h3`
   text-transform: uppercase;
@@ -40,8 +41,13 @@ export const RowStyled = styled(Row)`
   align-items: center;
 
   gap: 30px;
+  padding-bottom: 30px;
 
   ${ADAPTIVE.minWidth.desktop} {
     gap: 0;
   }
+`;
+
+export const ButtonStyled = styled(Button)`
+  font-size: 14px;
 `;

@@ -10,6 +10,7 @@ import { WhyMeComponent } from "@worms/components/WhyMeComponent";
 import { YandexMap } from "@worms/components/YandexMap";
 import { WormsVariants } from "@worms/components/WormsVariants";
 import { Footer } from "@worms/components/Footer";
+import { Biogum } from "@worms/components/Biogum";
 
 export const Home = () => {
   return (
@@ -26,6 +27,7 @@ export const Home = () => {
         <WhyMeComponent />
         <Gallery />
         <WormDescription />
+        <Biogum />
         <BottomForm />
         <YandexMap />
         <Footer />

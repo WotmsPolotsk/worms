@@ -29,7 +29,7 @@ export const HeroSection = () => {
             <ButtonStyled
               onClick={openModal(true)}
               className="hero-button"
-              text="Сделать заказ"
+              text="Получить обратный звонок"
             />
           </BottomContent>
           <MaskStyled />

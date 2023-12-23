@@ -1,6 +1,5 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import {
-  ButtonStyled,
   CaseStyled,
   Description,
   DescriptionText,
@@ -15,7 +14,6 @@ import { GridWrapper } from "@worms/common/GridWrapper";
 import { FlexWrapper } from "@worms/common/FlexWrapper";
 import { Title } from "@worms/common/Title";
 import { useWindowSize } from "@worms/hooks/useWindowSize";
-import { ModalForm } from "../ModalForm";
 
 interface DescriprionCaseProps {
   item: {
@@ -45,12 +43,6 @@ const DescriprionCase = ({ item }: DescriprionCaseProps) => {
 
 export const WormDescription = () => {
   const { isMobileView } = useWindowSize();
-
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = (value: boolean) => () => {
-    setIsModalOpen(value);
-  };
 
   const iconsData = [
     {
@@ -98,17 +90,10 @@ export const WormDescription = () => {
                 птиц (курицы, утки, гуси, индюки, перепелы и др.), а также для
                 свиней.
               </DescriptionText>
-
-              <ButtonStyled
-                onClick={openModal(true)}
-                className="hero-button"
-                text="Сделать заказ"
-              />
             </Description>
           </FlexWrapper>
         </GridWrapper>
       </Separator>
-      <ModalForm isOpen={isModalOpen} onClose={openModal(false)} />
     </>
   );
 };
