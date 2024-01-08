@@ -2,7 +2,7 @@ import { useIntersectionElement } from "@worms/hooks/useIntersectionElement";
 import { CaseStyled, Content, IconTextStyled, WhyMeStyled } from "./styled";
 
 import { useRef } from "react";
-import { Bank, Coins, Handshake, Shipping, Users } from "@worms/assets";
+import { Coins, Handshake, Shipping } from "@worms/assets";
 import { Separator } from "@worms/common/Separator";
 import { FlexWrapper } from "@worms/common/FlexWrapper";
 import { SvgIcon } from "@worms/common/SvgIcon";
