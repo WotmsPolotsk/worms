@@ -72,6 +72,7 @@ export const Worms = () => {
                       {dropdownsValues.map((item) => {
                         return (
                           <Dropdown.Item
+                            style={{ padding: "10px 16px" }}
                             key={item.value}
                             onClick={() => setDropdownValue(item)}
                           >
