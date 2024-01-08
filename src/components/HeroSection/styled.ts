@@ -14,7 +14,7 @@ export const HeroSectionStyled = styled.div`
   background-size: cover;
   width: 100%;
 
-  height: 350px;
+  min-height: 350px;
   padding: 12px;
 
   ${ADAPTIVE.minWidth.tablet} {
