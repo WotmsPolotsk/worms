@@ -2,23 +2,23 @@ import { ADAPTIVE } from "@worms/utils/constants";
 import styled, { css } from "styled-components";
 
 export const FrontStyled = styled.div<{ bgImage: string }>`
-  position: absolute;
-  top: 0;
-  left: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100%;
+  height: 400px;
+  cursor: pointer;
+
+  ${ADAPTIVE.minWidth.desktop} {
+    height: 500px;
+  }
   position: relative;
   background-image: url(${({ bgImage }) => bgImage});
   background-size: cover;
   background-position: center center;
-  backface-visibility: hidden;
-  border-radius: 5px;
 
-  transform: perspective(600px) rotateY(0deg);
-  transition: transform 0.5s linear;
+  border-radius: 5px;
+  z-index: 2;
 
   -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
   -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
@@ -26,15 +26,17 @@ export const FrontStyled = styled.div<{ bgImage: string }>`
 `;
 
 export const BackStyled = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
   padding: 20px;
   display: flex;
   align-items: flex-end;
-  backface-visibility: hidden;
+  cursor: pointer;
+
+  height: 400px;
+
+  ${ADAPTIVE.minWidth.desktop} {
+    height: 500px;
+  }
   border-radius: 5px;
   background-color: #fff;
 
@@ -44,12 +46,21 @@ export const BackStyled = styled.div`
     font-size: 18px;
   }
 
-  transform: perspective(600px) rotateY(180deg);
   transition: transform 0.5s linear;
 
   -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
   -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
   box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+`;
+
+export const FlipStyled = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: visible !important;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transition: transform 0.5s linear;
 `;
 
 export const CardWrapper = styled.div<{ isClick: boolean }>`
@@ -65,23 +76,15 @@ export const CardWrapper = styled.div<{ isClick: boolean }>`
   ${({ isClick }) =>
     isClick &&
     css`
-      ${FrontStyled} {
-        transform: perspective(600px) rotateY(-180deg);
-      }
-
-      ${BackStyled} {
-        transform: perspective(600px) rotateY(0deg);
+      ${FlipStyled} {
+        transform: rotateY(180deg);
       }
     `}
 
   &:hover {
     ${ADAPTIVE.minWidth.desktop} {
-      ${FrontStyled} {
-        transform: perspective(600px) rotateY(-180deg);
-      }
-
-      ${BackStyled} {
-        transform: perspective(600px) rotateY(0deg);
+      ${FlipStyled} {
+        transform: rotateY(180deg);
       }
     }
   }

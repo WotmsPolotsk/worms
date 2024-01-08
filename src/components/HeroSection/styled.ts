@@ -114,8 +114,11 @@ const rotate = keyframes`
 
 export const ButtonStyled = styled(Button)`
   font-size: 14px;
-  animation: ${rotate} 1s;
-  animation-iteration-count: infinite;
+
+  ${ADAPTIVE.minWidth.desktop} {
+    animation: ${rotate} 1s;
+    animation-iteration-count: infinite;
+  }
 
   &:hover {
     animation: none;

@@ -50,4 +50,9 @@ export const RowStyled = styled(Row)`
 
 export const ButtonStyled = styled(Button)`
   font-size: 14px;
+  width: 100%;
+
+  ${ADAPTIVE.minWidth.desktop} {
+    width: auto;
+  }
 `;

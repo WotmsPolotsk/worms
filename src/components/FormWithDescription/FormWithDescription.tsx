@@ -1,5 +1,5 @@
 import "react-phone-number-input/style.css";
-import { ReactNode, useState } from "react";
+import { ReactNode, useCallback, useState } from "react";
 import { ButtonStyled, ButtonsPanel, FormStyled } from "./styled";
 
 import { Mail, Phone, User } from "@worms/assets";
@@ -14,27 +14,70 @@ const reqExpNumber = /^\+?\d+$/;
 interface FormWithDescriptionProps {
   secondaryButon?: ReactNode;
   buttonText?: string;
+  addData?: Array<{ label: string; value: string }>;
+  callback?: () => void;
 }
 
-export const FormWithDescription = (props: FormWithDescriptionProps) => {
-  const { secondaryButon, buttonText = "Сделать заказ онлайн" } = props;
+const defaultFormState = {
+  name: "",
+  email: "",
+  phone: "",
+  description: "",
+};
 
-  const [fields, setFields] = useState({
-    name: "",
-    phone: "",
-    description: "",
-    email: "",
-  });
+const defaultFormStateError = {
+  name: "",
+  email: "",
+  phone: "",
+};
+
+export const FormWithDescription = (props: FormWithDescriptionProps) => {
+  const {
+    secondaryButon,
+    buttonText = "Сделать заказ онлайн",
+    addData,
+    callback,
+  } = props;
+
+  const [fields, setFields] = useState(defaultFormState);
 
   const [fieldsErrors, setFieldsErros] = useState<{
     name: string;
     phone: string;
     email: string;
-  }>({
-    name: "",
-    phone: "",
-    email: "",
-  });
+  }>(defaultFormStateError);
+
+  const prepareSubmitResultFields = (data: {
+    name: string;
+    phone: string;
+    description: string;
+    email: string;
+  }) => {
+    return Object.entries(data).map((item) => {
+      switch (item[0]) {
+        case "name":
+          return {
+            label: "Имя",
+            value: item[1],
+          };
+        case "phone":
+          return {
+            label: "Телефон",
+            value: item[1],
+          };
+        case "description":
+          return {
+            label: "Комментарий",
+            value: item[1],
+          };
+        case "email":
+          return {
+            label: "Email",
+            value: item[1],
+          };
+      }
+    });
+  };
 
   const onChangeField =
     (field: "email" | "phone" | "name" | "description") => (value: string) => {
@@ -60,6 +103,10 @@ export const FormWithDescription = (props: FormWithDescriptionProps) => {
         }
       }
 
+      if (field === "name") {
+        setFieldsErros({ ...fieldsErrors, name: "" });
+      }
+
       setFields({ ...fields, [field]: value });
     };
 
@@ -68,6 +115,25 @@ export const FormWithDescription = (props: FormWithDescriptionProps) => {
       setFieldsErros({ ...fieldsErrors, [field]: "Заполните поле" });
     }
   };
+
+  const onSubmit = useCallback(() => {
+    const isError = Object.values(fieldsErrors).some((item) => item);
+    const isNotEmpty = Object.values(fields).every((item) => item);
+
+    if (!isError && isNotEmpty) {
+      const fieldsResult = prepareSubmitResultFields(fields);
+      const submitResult = addData
+        ? [...addData, ...fieldsResult]
+        : fieldsResult;
+
+      console.log(submitResult);
+      setFieldsErros(defaultFormStateError);
+      setFields(defaultFormState);
+      if (callback) {
+        callback();
+      }
+    }
+  }, [fields, fieldsErrors]);
 
   return (
     <FormStyled>
@@ -105,13 +171,14 @@ export const FormWithDescription = (props: FormWithDescriptionProps) => {
           isRequired={false}
         />
         <ButtonsPanel
+          onClick={onSubmit}
           flexDirection="column"
           width="100%"
           gap="16px"
           flexWrap="nowrap"
           alignItems="center"
         >
-          <ButtonStyled type="submit" text={buttonText} width={"100%"} />
+          <ButtonStyled text={buttonText} width={"100%"} />
           {secondaryButon && secondaryButon}
         </ButtonsPanel>
       </FlexWrapper>

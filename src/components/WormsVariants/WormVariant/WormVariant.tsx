@@ -1,6 +1,6 @@
 import { useWindowSize } from "@worms/hooks/useWindowSize";
+import ReactCardFlip from "react-card-flip";
 import {
-  CardWrapper,
   FrontStyled,
   Notification,
   MaskStyled,
@@ -32,19 +32,14 @@ export const WormVariant = (props: WormVariantProps) => {
   }, [isInfiniteDesktopView]);
 
   return (
-    <CardWrapper
-      isClick={isClick}
-      onClick={!isInfiniteDesktopView ? onClick : undefined}
-    >
-      <FrontStyled bgImage={image}>
+    <ReactCardFlip isFlipped={isClick} flipDirection="horizontal">
+      <FrontStyled bgImage={image} onClick={onClick}>
         <TitleStyled>{title}</TitleStyled>
-        <Notification>
-          {isInfiniteDesktopView ? "Наведите" : "Нажмите"}, чтобы узнать больше
-        </Notification>
+        <Notification>Нажмите, чтобы узнать больше</Notification>
         <MaskStyled />
       </FrontStyled>
 
-      <BackStyled>{description}</BackStyled>
-    </CardWrapper>
+      <BackStyled onClick={onClick}>{description}</BackStyled>
+    </ReactCardFlip>
   );
 };

@@ -1,5 +1,6 @@
 import { Button } from "@worms/common/Button";
 import { FlexWrapper } from "@worms/common/FlexWrapper";
+import { ADAPTIVE } from "@worms/utils/constants";
 import styled from "styled-components";
 
 export const NavigationStyled = styled.div`
@@ -24,6 +25,10 @@ export const NavigationContentStyled = styled.div`
 
 export const ImageStyled = styled.img`
   max-width: 60px;
+
+  ${ADAPTIVE.minWidth.desktop} {
+    max-width: 70px;
+  }
 `;
 
 export const LogoStyled = styled.div`

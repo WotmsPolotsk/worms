@@ -1,6 +1,6 @@
 import { WormDescription } from "@worms/components/WormDescription";
 
-import { HomeBgStyled, HomeContent, HomeStyled, MaskStyled } from "./styled";
+import { HomeBgStyled, HomeContent, HomeStyled } from "./styled";
 import { Navigation } from "@worms/components/Navigation";
 import { HeroSection } from "@worms/components/HeroSection";
 import { BottomForm } from "@worms/components/BottomForm";
@@ -11,13 +11,12 @@ import { YandexMap } from "@worms/components/YandexMap";
 import { WormsVariants } from "@worms/components/WormsVariants";
 import { Footer } from "@worms/components/Footer";
 import { Biogum } from "@worms/components/Biogum";
+import { Worms } from "@worms/components/Worms";
 
 export const Home = () => {
   return (
     <HomeStyled>
-      <HomeBgStyled>
-        <MaskStyled />
-      </HomeBgStyled>
+      <HomeBgStyled />
 
       <HomeContent>
         <Navigation />
@@ -28,6 +27,7 @@ export const Home = () => {
         <Gallery />
         <WormDescription />
         <Biogum />
+        <Worms />
         <BottomForm />
         <YandexMap />
         <Footer />

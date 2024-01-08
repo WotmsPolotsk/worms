@@ -56,16 +56,16 @@ export const Biogum = () => {
     const num = +value;
 
     switch (true) {
-      case num > 200 && num < 400:
+      case num >= 200 && num < 400:
         setStep(1);
         break;
-      case num > 400 && num < 600:
+      case num >= 400 && num < 600:
         setStep(2);
         break;
-      case num > 600 && num < 800:
+      case num >= 600 && num < 800:
         setStep(3);
         break;
-      case num > 800:
+      case num >= 800:
         setStep(4);
         break;
       default:
@@ -86,13 +86,11 @@ export const Biogum = () => {
             >
               <TitleStyled>Хотите приобрести биогумус у нас?</TitleStyled>
               <DescriptionText>
-                Черви старатели — вид беспозвоночных, который был получен в
-                результате скрещивания Владимерских и Чуйских червей. Их нужно
-                использовать в качестве производителя чистого и натурального
-                удобрения для растений — Биогумус, которое по своим свойствам в
-                десятки раз лучше навоза, белкового и питательного корма для
-                птиц (курицы, утки, гуси, индюки, перепелы и др.), а также для
-                свиней.
+                Если вы хотите приобрести биогумус у нас, тогда вам нужно просто
+                заполнить нашу форму заказа. Укажите нужное для вас количество
+                биогумуса и ваши контанктые данные. Наши сотрудники перезвонят
+                вам в ближайшее время. В случае, если вам нужно больше одной
+                тонны товара, вопрос решается индивидуально.
               </DescriptionText>
             </FlexWrapper>
           </Col>
@@ -124,7 +122,12 @@ export const Biogum = () => {
                   <WeightMarkStyled>кг</WeightMarkStyled>
                 </FlexWrapper>
               </FlexWrapper>
-              <Form />
+              <Form
+                addData={[
+                  { label: "Товар", value: "Биогумус" },
+                  { label: "Вес", value: `${value} кг` },
+                ]}
+              />
             </FlexWrapper>
           </Col>
         </RowStyled>

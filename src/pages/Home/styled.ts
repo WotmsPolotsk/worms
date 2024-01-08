@@ -12,30 +12,18 @@ export const HeroSectionStyled = styled.div`
 
 export const HomeStyled = styled(FlexWrapper)`
   width: 100%;
-  background-image: url(${WormsBgImage});
-  background-repeat: repeat;
   position: relative;
 `;
 
 export const HomeBgStyled = styled(FlexWrapper)`
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   position: fixed;
   background-image: url(${WormsBgImage});
   background-repeat: repeat;
 `;
 
-export const MaskStyled = styled.div`
-  width: 100%;
-  height: 100vh;
-  position: absolute;
-  left: 0;
-  top: 0;
-  background: rgba(0, 0, 0, 0.85);
-  z-index: 0;
-`;
-
 export const HomeContent = styled.div`
   width: 100%;
-  z-index: 1;
+  z-index: 10;
 `;

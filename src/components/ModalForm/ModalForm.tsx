@@ -11,10 +11,17 @@ import { FormWithDescription } from "../FormWithDescription";
 interface ModalFormProps {
   isOpen: boolean;
   onClose: () => void;
+  title?: string;
+  data?: Array<{ label: string; value: string }>;
 }
 
 export const ModalForm = (props: ModalFormProps) => {
-  const { isOpen, onClose } = props;
+  const {
+    isOpen,
+    onClose,
+    title = "Оставьте ваши контактные данные и мы вам перезвоним",
+    data,
+  } = props;
 
   const ref = useRef<HTMLDivElement>(null);
 
@@ -51,10 +58,10 @@ export const ModalForm = (props: ModalFormProps) => {
     <ModalWindowContainer>
       <ModalWindowStyled ref={ref}>
         <FlexWrapper flexDirection="column" alignItems="center">
-          <TitleStyled>
-            Оставьте ваши контактные данные и мы вам перезвоним
-          </TitleStyled>
+          <TitleStyled>{title}</TitleStyled>
           <FormWithDescription
+            callback={() => onClose()}
+            addData={data}
             secondaryButon={
               <ButtonStyled
                 onClick={() => onClose()}
