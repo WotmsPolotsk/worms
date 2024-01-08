@@ -28,6 +28,10 @@ const ImageStyled = styled.img`
 const RowStyled = styled(Row)`
   justify-content: center;
   align-items: center;
+
+  ${ADAPTIVE.minWidth.desktop} {
+    gap: 16px;
+  }
 `;
 
 export const TitleStyled = styled.h3`

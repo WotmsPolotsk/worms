@@ -20,7 +20,6 @@ export const RowStyled = styled(Row)`
 
   ${ADAPTIVE.minWidth.desktop} {
     flex-direction: row;
-    gap: 0;
   }
 `;
 

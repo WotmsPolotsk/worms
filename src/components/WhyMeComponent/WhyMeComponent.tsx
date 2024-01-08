@@ -19,15 +19,7 @@ export const WhyMeComponent = () => {
 
   const iconsData = [
     {
-      title: "5+ лет на рынке",
-      icon: Bank,
-    },
-    {
-      title: "1000+ клиентов",
-      icon: Users,
-    },
-    {
-      title: "Лучшие цены",
+      title: "Лучшие цены на рынке",
       icon: Coins,
     },
     {
@@ -49,8 +41,8 @@ export const WhyMeComponent = () => {
             <Title colorValue="#fff">Почему выбирают именно нас?</Title>
 
             <FlexWrapper
-              justifyContent="space-around"
               alignItems="center"
+              justifyContent="center"
               ref={ref}
               flexDirection={isMobileView ? "column" : "row"}
               width="100%"
