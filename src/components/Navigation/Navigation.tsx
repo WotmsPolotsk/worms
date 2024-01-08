@@ -1,6 +1,7 @@
 import { GridWrapper } from "@worms/common/GridWrapper";
 import {
   ContactItem,
+  ContactItemMobile,
   ContactStyled,
   ImageStyled,
   LogoStyled,
@@ -11,6 +12,7 @@ import {
 import { FlexWrapper } from "@worms/common/FlexWrapper";
 import { Logo, Mail, Phone } from "@worms/assets";
 import { useWindowSize } from "@worms/hooks/useWindowSize";
+import { SvgIcon } from "@worms/common/SvgIcon";
 
 export const Navigation = () => {
   const { isMobileView } = useWindowSize();
@@ -25,7 +27,7 @@ export const Navigation = () => {
             </LogoStyled>
 
             <FlexWrapper gap="48px" alignItems="center">
-              {!isMobileView && (
+              {!isMobileView ? (
                 <ContactStyled>
                   <ContactItem href="tel:+375297145127">
                     <SvgStyled src={Phone} />
@@ -36,6 +38,17 @@ export const Navigation = () => {
                     <SvgStyled src={Mail} />
                     test-email@gmail.com
                   </ContactItem>
+                </ContactStyled>
+              ) : (
+                <ContactStyled>
+                  <ContactItemMobile href="tel:+375297145127">
+                    <SvgIcon
+                      width="20px"
+                      height="20px"
+                      fill="#fff"
+                      iconSrc={Phone}
+                    />
+                  </ContactItemMobile>
                 </ContactStyled>
               )}
             </FlexWrapper>

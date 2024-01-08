@@ -2,17 +2,19 @@ import { FlexWrapper } from "@worms/common/FlexWrapper";
 import { Separator } from "@worms/common/Separator";
 import Dropdown from "react-bootstrap/Dropdown";
 import { Col, Container } from "react-bootstrap";
-import { WormsImage } from "@worms/assets";
+import { Warning, WormsImage } from "@worms/assets";
 import { useState } from "react";
 import { useWindowSize } from "@worms/hooks/useWindowSize";
 import { ModalForm } from "../ModalForm";
 import {
   ButtonStyled,
   DescriptionText,
+  DescriptionTextWarning,
   ImageStyled,
   RowStyled,
   TitleStyled,
 } from "./styled";
+import { SvgIcon } from "@worms/common/SvgIcon";
 
 export const Worms = () => {
   const dropdownsValues = [
@@ -85,6 +87,21 @@ export const Worms = () => {
                     text="Заказать"
                     width={"100%"}
                   />
+                  <DescriptionTextWarning>
+                    <SvgIcon
+                      marginRight="8px"
+                      width="22px"
+                      height="22px"
+                      fill="#fff"
+                      iconSrc={Warning}
+                    />
+                    <span>
+                      Доставка биогумуса осуществляется мешками по 5 киллограм.
+                      Максимально доставляеммое количество 1000 киллограм. В
+                      случае, если вам нужно другое количество товара, вопрос
+                      решается индивидуально.
+                    </span>
+                  </DescriptionTextWarning>
                 </FlexWrapper>
               </FlexWrapper>
             </Col>

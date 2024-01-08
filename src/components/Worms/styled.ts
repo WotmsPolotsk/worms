@@ -62,3 +62,10 @@ export const ButtonStyled = styled(Button)`
     background-color: #999999;
   }
 `;
+
+export const DescriptionTextWarning = styled.span`
+  font-size: 14px;
+  color: #121212;
+  font-weight: 400;
+  color: #fff;
+`;

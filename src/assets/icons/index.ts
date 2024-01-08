@@ -9,3 +9,4 @@ export { default as Phone } from "./phone.svg";
 export { default as Shipping } from "./shipping.svg";
 export { default as User } from "./user.svg";
 export { default as Users } from "./users.svg";
+export { default as Warning } from "./warning.svg";

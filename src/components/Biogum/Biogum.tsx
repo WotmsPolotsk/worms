@@ -7,7 +7,15 @@ import styled from "styled-components";
 
 import { Form } from "../Form";
 import { ADAPTIVE } from "@worms/utils/constants";
-import { Basket1, Basket2, Basket3, Basket4, Basket5 } from "@worms/assets";
+import {
+  Basket1,
+  Basket2,
+  Basket3,
+  Basket4,
+  Basket5,
+  Warning,
+} from "@worms/assets";
+import { SvgIcon } from "@worms/common/SvgIcon";
 
 const WeightMarkStyled = styled.div`
   font-size: 16px;
@@ -44,6 +52,12 @@ export const DescriptionText = styled.span`
   ${ADAPTIVE.minWidth.desktop} {
     font-size: 18px;
   }
+`;
+
+export const DescriptionTextWarning = styled.span`
+  font-size: 14px;
+  color: #121212;
+  font-weight: 400;
 `;
 
 export const Biogum = () => {
@@ -92,6 +106,21 @@ export const Biogum = () => {
                 вам в ближайшее время. В случае, если вам нужно больше одной
                 тонны товара, вопрос решается индивидуально.
               </DescriptionText>
+              <DescriptionTextWarning>
+                <SvgIcon
+                  marginRight="8px"
+                  width="22px"
+                  height="22px"
+                  fill="#121212"
+                  iconSrc={Warning}
+                />
+                <span>
+                  Доставка биогумуса осуществляется мешками по 5 киллограм.
+                  Максимально доставляеммое количество 1000 киллограм. В случае,
+                  если вам нужно другое количество товара, вопрос решается
+                  индивидуально.
+                </span>
+              </DescriptionTextWarning>
             </FlexWrapper>
           </Col>
           <Col lg={4}>

@@ -58,6 +58,22 @@ export const ContactItem = styled.a`
   cursor: pointer;
 `;
 
+export const ContactItemMobile = styled.a`
+  gap: 8px;
+  display: flex;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  background-color: #121212;
+  font-size: 16px;
+  font-weight: 400;
+  color: #121212;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+`;
+
 export const SvgStyled = styled.img`
   width: 22px;
 `;
