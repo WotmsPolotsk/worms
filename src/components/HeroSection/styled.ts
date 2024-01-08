@@ -14,7 +14,7 @@ export const HeroSectionStyled = styled.div`
   background-size: cover;
   width: 100%;
 
-  min-height: 350px;
+  min-height: 380px;
   padding: 12px;
 
   ${ADAPTIVE.minWidth.tablet} {
@@ -56,7 +56,7 @@ export const HeroContentStyled = styled.div`
 `;
 
 export const TitleStyled = styled.h1`
-  font-size: 34px;
+  font-size: 32px;
 
   ${ADAPTIVE.minWidth.tablet} {
     font-size: 48px;
