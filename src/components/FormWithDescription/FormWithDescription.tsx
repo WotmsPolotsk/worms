@@ -118,7 +118,9 @@ export const FormWithDescription = (props: FormWithDescriptionProps) => {
 
   const onSubmit = useCallback(() => {
     const isError = Object.values(fieldsErrors).some((item) => item);
-    const isNotEmpty = Object.values(fields).every((item) => item);
+    const isNotEmpty = Object.entries(fields).every((item) =>
+      item[0] === "description" ? true : item[1]
+    );
 
     if (!isError && isNotEmpty) {
       const fieldsResult = prepareSubmitResultFields(fields);
