@@ -21,6 +21,7 @@ export const ModalWindowStyled = styled.div`
   background-color: #fff;
   border-radius: 5px;
   width: 100%;
+  overflow-x: auto;
 
   ${ADAPTIVE.minWidth.tablet} {
     width: 400px;

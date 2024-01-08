@@ -32,10 +32,10 @@ export const BackStyled = styled.div`
   align-items: flex-end;
   cursor: pointer;
 
-  height: 400px;
+  min-height: 400px;
 
   ${ADAPTIVE.minWidth.desktop} {
-    height: 500px;
+    min-height: 500px;
   }
   border-radius: 5px;
   background-color: #fff;

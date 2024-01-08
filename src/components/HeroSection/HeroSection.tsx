@@ -24,7 +24,9 @@ export const HeroSection = () => {
           <BottomContent justifyContent="space-between" alignItems="flex-end">
             <HeroContentStyled>
               <SubtitleStyled>Полоцк</SubtitleStyled>
-              <TitleStyled>Продажа червей и биогумуса</TitleStyled>
+              <TitleStyled>
+                Продажа и производство червей и биогумуса
+              </TitleStyled>
             </HeroContentStyled>
             <ButtonStyled
               onClick={openModal(true)}
