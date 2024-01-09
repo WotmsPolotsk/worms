@@ -24,6 +24,12 @@ const defaultFormState = {
   phone: "",
 };
 
+const defaultFormStateTouch = {
+  name: false,
+  email: false,
+  phone: false,
+};
+
 export const Form = (props: FormProps) => {
   const {
     secondaryButon,
@@ -39,8 +45,16 @@ export const Form = (props: FormProps) => {
     phone: string;
   }>(defaultFormState);
 
+  const [fieldsTouch, setFieldsTouch] = useState<{
+    name: boolean;
+    email: boolean;
+    phone: boolean;
+  }>(defaultFormStateTouch);
+
   const onChangeField =
     (field: "email" | "phone" | "name") => (value: string) => {
+      setFieldsTouch({ ...fieldsTouch, [field]: true });
+
       if (field === "email") {
         if (!value.toLowerCase().match(reqExpEmail)) {
           setFieldsErros({
@@ -106,6 +120,24 @@ export const Form = (props: FormProps) => {
     const isError = Object.values(fieldsErrors).some((item) => item);
     const isNotEmpty = Object.values(fields).every((item) => item);
 
+    if (!fieldsTouch.email) {
+      setFieldsErros((prev) => {
+        return { ...prev, email: "Заполните поле" };
+      });
+    }
+
+    if (!fieldsTouch.name) {
+      setFieldsErros((prev) => {
+        return { ...prev, name: "Заполните поле" };
+      });
+    }
+
+    if (!fieldsTouch.phone) {
+      setFieldsErros((prev) => {
+        return { ...prev, phone: "Заполните поле" };
+      });
+    }
+
     if (!isError && isNotEmpty) {
       const fieldsResult = prepareSubmitResultFields(fields);
       const submitResult = addData
@@ -115,8 +147,9 @@ export const Form = (props: FormProps) => {
       console.log(submitResult);
       setFieldsErros(defaultFormState);
       setFields(defaultFormState);
+      setFieldsTouch(defaultFormStateTouch);
     }
-  }, [fields, fieldsErrors]);
+  }, [fields, fieldsErrors, fieldsTouch]);
 
   return (
     <FormStyled>
