@@ -21,8 +21,9 @@ const WeightMarkStyled = styled.div`
   font-size: 16px;
 `;
 
-const ImageStyled = styled.img`
+const ImageStyled = styled.img<{ isVisible: boolean }>`
   width: 170px;
+  display: ${({ isVisible }) => (isVisible ? "block" : "none")};
 `;
 
 const RowStyled = styled(Row)`
@@ -137,7 +138,12 @@ export const Biogum = () => {
                 width="100%"
                 gap="0px"
               >
-                <ImageStyled src={images[step]} />
+                {images.map((image, index) => {
+                  const isVisible = index === step;
+
+                  return <ImageStyled isVisible={isVisible} src={image} />;
+                })}
+
                 <FlexWrapper
                   flexDirection="column"
                   width="100%"
